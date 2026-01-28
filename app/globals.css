@@ -554,7 +554,7 @@ h3 {
 
 /* ===== Compact Card (Portrait Screenshot View) ===== */
 .compact-card {
-  width: 360px;
+  width: 350px;
   height: 650px;
   background: var(--glass-frost), var(--glass-bg);
   backdrop-filter: blur(35px) saturate(130%);
@@ -728,7 +728,7 @@ h3 {
   flex: 1;
   background: rgba(255, 255, 255, 0.05);
   border: none;
-  padding: 12px;
+  padding: 9px;
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-secondary);
@@ -760,7 +760,7 @@ h3 {
 }
 
 .broker-summary-card {
-  width: 360px;
+  width: 350px;
   background: var(--glass-frost), var(--glass-bg);
   backdrop-filter: blur(35px) saturate(130%);
   border: 1px solid var(--glass-border);
@@ -779,23 +779,6 @@ h3 {
   -ms-overflow-style: none;
 }
 
-/* ===== KeyStats Card ===== */
-.keystats-card {
-  width: 360px;
-  background: #fafafa;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  padding: 0.75rem 1rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  color: #333;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  /* Scrollable Logic */
-  height: 650px;
-  /* Reduced to match BrokerSummary visual approx */
-  overflow-y: auto;
-  scrollbar-width: thin;
-}
 
 .broker-filters {
   display: flex;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface PriceGraphProps {
   ticker: string;
@@ -8,6 +8,30 @@ interface PriceGraphProps {
 
 export default function PriceGraph({ ticker }: PriceGraphProps) {
   const container = useRef<HTMLDivElement>(null);
+  const [isLightTheme, setIsLightTheme] = useState(false);
+
+  // Sync theme with document.body class
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsLightTheme(document.body.classList.contains('light-theme'));
+    };
+
+    // Initial check
+    checkTheme();
+
+    // Observe changes to document.body class
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          checkTheme();
+        }
+      });
+    });
+
+    observer.observe(document.body, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!container.current) return;
@@ -19,46 +43,58 @@ export default function PriceGraph({ ticker }: PriceGraphProps) {
     script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
     script.type = "text/javascript";
     script.async = true;
-    script.innerHTML = JSON.stringify({
+    
+    const widgetConfig = {
       "autosize": true,
       "symbol": `IDX:${ticker.toUpperCase()}`,
       "interval": "D",
       "timezone": "Asia/Jakarta",
-      "theme": "dark",
+      "theme": isLightTheme ? "light" : "dark",
       "style": "1",
       "locale": "en",
       "allow_symbol_change": true,
       "calendar": false,
-      "support_host": "https://www.tradingview.com"
-    });
+      "support_host": "https://www.tradingview.com",
+      "backgroundColor": isLightTheme ? "#ffffff" : "#0F0F0F",
+      "gridColor": isLightTheme ? "rgba(46, 46, 46, 0.06)" : "rgba(242, 242, 242, 0.06)"
+    };
+
+    script.innerHTML = JSON.stringify(widgetConfig);
 
     container.current.appendChild(script);
-  }, [ticker]);
+  }, [ticker, isLightTheme]);
 
   return (
     <div className="glass-card" style={{ 
       padding: '0', 
       overflow: 'hidden',
       height: '600px',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      background: '#131722', // Matching TradingView's dark theme
+      border: isLightTheme ? '1px solid rgba(0, 0, 0, 0.08)' : '1px solid rgba(255, 255, 255, 0.1)',
+      background: isLightTheme ? '#ffffff' : '#0F0F0F',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      transition: 'background-color 0.3s ease, border-color 0.3s ease'
     }}>
       <div style={{
         padding: '0.75rem 1rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-        background: 'rgba(0, 0, 0, 0.2)'
+        borderBottom: isLightTheme ? '1px solid rgba(0, 0, 0, 0.05)' : '1px solid rgba(255, 255, 255, 0.05)',
+        background: isLightTheme ? 'rgba(0, 0, 0, 0.02)' : 'rgba(0, 0, 0, 0.2)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M3 3v18h18"></path>
             <path d="m19 9-5 5-4-4-3 3"></path>
           </svg>
-          <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+          <span style={{ 
+            fontSize: '0.8rem', 
+            fontWeight: 600, 
+            color: isLightTheme ? 'var(--text-primary)' : '#fff', 
+            textTransform: 'uppercase', 
+            letterSpacing: '0.5px' 
+          }}>
             Advanced Chart
           </span>
         </div>
