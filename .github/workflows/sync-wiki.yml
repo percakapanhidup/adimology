@@ -36,6 +36,7 @@ jobs:
           
           # Salin semua file dari docs/ ke wiki
           # Kita juga merename file agar URL di wiki lebih bagus
+          cp ../docs/Home.md ./Home.md
           cp ../docs/WIKI_DEPLOY_CLOUD.md ./Deploy-Cloud.md
           cp ../docs/CHECKPOINT.md ./Checkpoint.md
           

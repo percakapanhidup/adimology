@@ -24,9 +24,11 @@ Pastikan tabel sudah terbentuk di dashboard Supabase (Menu **Table Editor**):
   - `watchlist`
   - `watchlist_history`
 - Jika tabel tidak ada, ulangi langkah **A1 No. 14** (Jalankan script `000_init.sql` di SQL Editor).
+![Supabase Setup](https://raw.githubusercontent.com/bhaktiutama/adimology/main/public/checkpoint01.png)
 
 ## 3. Environment Variables (Netlify)
 Pastikan di dashboard Netlify (**Site configuration > Environment variables**) variabel berikut sudah benar dan tidak ada typo:
+![Supabase Setup](https://raw.githubusercontent.com/bhaktiutama/adimology/main/public/checkpoint02.png)
 
 | Key | Catatan |
 |---|---|
@@ -36,8 +38,9 @@ Pastikan di dashboard Netlify (**Site configuration > Environment variables**) v
 | `CRON_SECRET` | Bebas, tapi pastikan tidak kosong |
 
 ## 4. Cara Verifikasi Manual
-1. Buka Stockbit di Chrome.
-2. Klik kanan di mana saja > **Inspect**.
-3. Buka tab **Console**.
-4. Jika ekstensi bekerja, Anda akan melihat log seperti: `[Stockbit Token] Token updated successfully`.
+1. Buka Extension di Chrome.
+2. Klik Service Worker.
+![Supabase Setup](https://raw.githubusercontent.com/bhaktiutama/adimology/main/public/checkpoint04.png)
+4. Jika ekstensi bekerja, Anda akan melihat log seperti: `Token successfully synced to API.`.
+![Supabase Setup](https://raw.githubusercontent.com/bhaktiutama/adimology/main/public/checkpoint03.png)
 5. Jika ada error merah, silakan screenshot dan tanyakan di group/issue.

@@ -81,3 +81,9 @@ Agar migrasi otomatis dapat berjalan, Anda perlu menyiapkan infrastruktur pelaca
 3. Buka URL Netlify Anda
 4. Cek indikator koneksi Stockbit di aplikasi - harus menunjukkan **Connected**
 5. Coba analisis saham pertama Anda! 🎉
+
+## A5. Checkpoint Troubleshooting Koneksi
+
+Jika status di aplikasi masih **"Disconnected"** atau Token invalid, silakan lakukan [pemeriksaan poin-poin berikut](CHECKPOINT.md).
+
+   
