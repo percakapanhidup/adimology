@@ -93,7 +93,7 @@ Pilih salah satu opsi instalasi yang sesuai dengan kebutuhan Anda:
 
 Opsi ini direkomendasikan untuk penggunaan harian karena aplikasi akan berjalan secara otomatis di cloud dan dapat diakses dari mana saja.
 
-👉 **[Lihat Panduan Deploy Cloud Selengkapnya](docs/WIKI_DEPLOY_CLOUD.md)**
+👉 **[Lihat Panduan Deploy Cloud Selengkapnya](https://github.com/bhaktiutama/adimology/wiki/Deploy-Cloud)**
 
 ---
 
@@ -101,13 +101,13 @@ Opsi ini direkomendasikan untuk penggunaan harian karena aplikasi akan berjalan 
 
 Opsi ini cocok untuk pengembangan atau jika Anda hanya ingin menjalankan aplikasi di komputer sendiri.
 
-👉 **[Lihat Panduan Instalasi Lokal Selengkapnya](docs/WIKI_DEPLOY_LOCAL.md)**
+👉 **[Lihat Panduan Instalasi Lokal Selengkapnya](https://github.com/bhaktiutama/adimology/wiki/Deploy-Local)**
 
 ---
 
 ## Troubleshooting
  
-👉 **[Punya masalah? Lihat Checkpoint Troubleshooting](docs/CHECKPOINT.md)**
+👉 **[Punya masalah? Lihat Checkpoint Troubleshooting](https://github.com/bhaktiutama/adimology/wiki/Checkpoint)**
 
 ---
 
